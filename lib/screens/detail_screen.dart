@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:openbank/style/colors.dart';
 import 'package:openbank/widgets/cards/account_summary.dart';
 import 'package:openbank/widgets/charts/line_chart.dart';
+import 'package:openbank/widgets/list_item.dart';
 
 class DetailScreen extends StatefulWidget {
   const DetailScreen({Key? key}) : super(key: key);
@@ -23,34 +24,7 @@ class _DetailScreenState extends State<DetailScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 35.0, bottom: 5),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: Icon(
-                          Icons.arrow_back_ios_new,
-                          color: Colors.black,
-                        )),
-                    Text(
-                      "Burgan Wallet",
-                      style: TextStyle(fontSize: 19, fontWeight: FontWeight.w500, letterSpacing: 1, color: KC.primary),
-                    ),
-                    IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: Icon(
-                          Icons.notifications,
-                          color: Colors.black,
-                        )),
-                  ],
-                ),
-              ),
+              topRow(context),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 child: LineChartSample1(),
@@ -89,11 +63,11 @@ class _DetailScreenState extends State<DetailScreen> {
                     padding: EdgeInsets.zero,
                     scrollDirection: Axis.vertical,
                     children: [
-                      listviewItem(),
-                      listviewItem(),
-                      listviewItem(),
-                      listviewItem(),
-                      listviewItem(),
+                      ListViewItem(),
+                      ListViewItem(),
+                      ListViewItem(),
+                      ListViewItem(),
+                      ListViewItem(),
                     ],
                   ),
                 ),
@@ -105,22 +79,33 @@ class _DetailScreenState extends State<DetailScreen> {
     );
   }
 
-  Padding listviewItem() {
+  Padding topRow(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Card(
-        elevation: 2,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(13)),
-        child: ListTile(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(13)),
-          tileColor: Colors.white,
-          title: Text("Ertuğrul Dağlı", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
-          subtitle: Text("Burgan Bank", style: TextStyle(fontSize: 13)),
-          trailing: Text("TRY 144.23", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
-          leading: CircleAvatar(
-            child: FlutterLogo(),
+      padding: const EdgeInsets.only(top: 35.0, bottom: 5),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(
+                Icons.arrow_back_ios_new,
+                color: Colors.black,
+              )),
+          Text(
+            "Burgan Wallet",
+            style: TextStyle(fontSize: 19, fontWeight: FontWeight.w500, letterSpacing: 1, color: KC.primary),
           ),
-        ),
+          IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(
+                Icons.notifications,
+                color: Colors.black,
+              )),
+        ],
       ),
     );
   }
