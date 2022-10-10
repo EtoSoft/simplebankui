@@ -36,7 +36,7 @@ class _HomepageState extends State<Homepage> {
   }
 
   CurvedNavigationBar navBar() {
-    return CurvedNavigationBar(
+    return CurvedNavigationBar(animationDuration: Duration(milliseconds: 300),
       color: KC.primary,
       height: 65,
       backgroundColor: KC.white3,

@@ -19,61 +19,58 @@ class _DetailScreenState extends State<DetailScreen> {
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              topRow(context),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                child: LineChartSample1(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            topRow(context),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: LineChartSample1(),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20.0, top: 20, bottom: 10),
+              child: Text(
+                "Accounts",
+                style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20.0, top: 20, bottom: 10),
-                child: Text(
-                  "Accounts",
-                  style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 170,
+              child: Center(
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    CardSummary(context: context, icon: FontAwesomeIcons.ccMastercard, title: "Your Balance", desc: "TRY 21.342"),
+                    CardSummary(context: context, icon: FontAwesomeIcons.ccVisa, title: "Your Balance", desc: "TRY 2.231"),
+                    CardSummary(context: context, icon: FontAwesomeIcons.ccStripe, title: "Your Balance", desc: "TRY 14.233"),
+                  ],
                 ),
               ),
-              SizedBox(
-                height: 170,
-                child: Center(
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      CardSummary(context: context, icon: FontAwesomeIcons.ccMastercard, title: "Your Balance", desc: "TRY 21.342"),
-                      CardSummary(context: context, icon: FontAwesomeIcons.ccVisa, title: "Your Balance", desc: "TRY 2.231"),
-                      CardSummary(context: context, icon: FontAwesomeIcons.ccStripe, title: "Your Balance", desc: "TRY 14.233"),
-                    ],
-                  ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20.0, top: 15, bottom: 5),
+              child: Text(
+                "Recent Transactions",
+                style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Expanded(
+              child: Center(
+                child: ListView(
+                  padding: EdgeInsets.zero,
+                  scrollDirection: Axis.vertical,
+                  children: [
+                    ListViewItem(),
+                    ListViewItem(),
+                    ListViewItem(),
+                    ListViewItem(),
+                    ListViewItem(),
+                  ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20.0, top: 15, bottom: 5),
-                child: Text(
-                  "Recent Transactions",
-                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                ),
-              ),
-              SizedBox(
-                height: 230,
-                child: Center(
-                  child: ListView(
-                    padding: EdgeInsets.zero,
-                    scrollDirection: Axis.vertical,
-                    children: [
-                      ListViewItem(),
-                      ListViewItem(),
-                      ListViewItem(),
-                      ListViewItem(),
-                      ListViewItem(),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
